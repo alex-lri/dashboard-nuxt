@@ -1,4 +1,8 @@
 # Dashboard-Nuxt
+## Contributors 
+
+Alexandre Lairie : @alex-lri
+Florent Chabin : @flolpb
 
 ## Build Setup
 
