@@ -11,12 +11,13 @@ export const state = () => ({
         mail: null,
         password: null,
         connected: false,
-    }
+    },
+    status: true
 })
 
 
 export const mutations = {
-    INCREMENT: (state, data) => state.users.push(data),
+    ADD_USER: (state, data) => state.users.push(data),
     LOGIN: (state, data) => {
         state.users.forEach(user => {
             if(data.mail == user.mail && data.password == user.password){

@@ -22,6 +22,13 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+        <v-list-item
+        v-show="loaded"
+        >
+          <v-list-item-content>
+            <v-list-item-title v-text="$store.state.localStorage.user.name"/>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
@@ -90,9 +97,13 @@
 
 <script>
 export default {
-  data () {
-    return {
-      clipped: false,
+  computed: {
+      loaded() {
+        return this.$store.state.localStorage.status
+      }
+  },
+  data: () => ({
+    clipped: false,
       drawer: false,
       fixed: false,
       items: [
@@ -110,8 +121,8 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
-    }
+      title: 'Vuetify.js',
+
+    })
   }
-}
 </script>
