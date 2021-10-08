@@ -43,9 +43,6 @@ export default {
     'cookie-universal-nuxt',
   ],
 
-  router: {
-    middleware: "connected"
-  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

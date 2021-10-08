@@ -43,14 +43,15 @@ export default {
       this.$store.dispatch(ACTIONS.LOGIN, {
         mail: this.mail,
         password: this.password,
+      }).then(() => {
+        if (this.$store.state.localStorage.user.connected == true) {
+          this.$cookies.set('connected', true, {
+            path: '/',
+            maxAge: 60 * 60 * 24 * 7
+          });
+          this.$router.push("/dashboard");
+        }
       });
-      if (this.$store.state.localStorage.user.connected == true) {
-        this.$cookies.set('connected', true, {
-          path: '/',
-          maxAge: 60 * 60 * 24 * 7
-        });
-        this.$router.push("/dashboard");
-      }
     },
   },
 };
