@@ -36,6 +36,7 @@ export default {
       return this.$store.state.localStorage.status;
     },
   },
+  middleware: 'connected'
 };
 </script>
 
