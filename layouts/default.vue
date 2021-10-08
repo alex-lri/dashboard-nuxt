@@ -26,7 +26,7 @@
         v-show="loaded"
         >
           <v-list-item-content>
-            <v-list-item-title v-text="$store.state.localStorage.user.name"/>
+            <v-list-item-title v-text="$store.state.localStorage.user.mail"/>
           </v-list-item-content>
         </v-list-item>
       </v-list>

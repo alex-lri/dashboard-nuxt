@@ -49,7 +49,6 @@
                     mail: this.mail,
                     password: this.password,
                 });
-                console.log("test");
             }
         }
     }
