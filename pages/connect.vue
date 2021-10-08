@@ -2,8 +2,8 @@
     <div>
         <transition name="slide-fade"><Login v-if="login" /></transition>
         <transition name="slide-fade"><SignUp v-if="!login" /></transition>
-        <v-btn v-if="login" text @click="switchLogin">S'inscrire</v-btn>
-        <v-btn v-if="!login" text @click="switchLogin">Se connecter</v-btn>
+        <v-btn outlined color="white" v-if="login" text @click="switchLogin">S'inscrire</v-btn>
+        <v-btn outlined color="white" v-if="!login" text @click="switchLogin">Se connecter</v-btn>
     </div>
 </template>
 <script>

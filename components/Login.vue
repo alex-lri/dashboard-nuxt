@@ -8,6 +8,10 @@
         <v-text-field v-model="mail" label="Mail" required></v-text-field>
         <v-text-field
           v-model="password"
+          :rules="passwordRules"
+          :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+          :type="showPassword ? 'text' : 'password'"
+          @click:append="showPassword = !showPassword"
           label="Mot de passe"
           required
         ></v-text-field>
@@ -20,30 +24,30 @@
   </div>
 </template>
 <script>
-
-
-  import {ACTIONS} from "../store/localStorage.js";
-    export default {
-        computed: {
-            loaded() {
-                return this.$store.state.localStorage.status
-            }
-        },
-        data: () => ({
-            valid: true,
-            mail: '',
-            password: '',
-        }),
-        methods: {
-            login(){
-                this.$store.dispatch(ACTIONS.LOGIN, {
-                    mail: this.mail,
-                    password: this.password,
-                });
-                if(this.$store.state.localStorage.user.connected == true){
-                    this.$router.push("/dashboard")
-                }
-            }
-        }
-    }
+import { ACTIONS } from "../store/localStorage.js";
+export default {
+  computed: {
+    loaded() {
+      return this.$store.state.localStorage.status;
+    },
+  },
+  data: () => ({
+    valid: true,
+    mail: "",
+    password: "",
+    passwordRules: [(v) => !!v || "Password is required"],
+    showPassword: false,
+  }),
+  methods: {
+    login() {
+      this.$store.dispatch(ACTIONS.LOGIN, {
+        mail: this.mail,
+        password: this.password,
+      });
+      if (this.$store.state.localStorage.user.connected == true) {
+        this.$router.push("/dashboard");
+      }
+    },
+  },
+};
 </script>
