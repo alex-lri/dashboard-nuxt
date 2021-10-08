@@ -12,7 +12,7 @@
       ></v-text-field>
 
       <v-text-field
-        v-model="email"
+        v-model="mail"
         :rules="emailRules"
         label="E-mail"
         required
@@ -43,7 +43,7 @@
       >
         <v-list-item-content>
           <v-list-item-title v-text="user.name" />
-          <v-list-item-title v-text="user.email" />
+          <v-list-item-title v-text="user.mail" />
           <v-list-item-title v-text="user.password" />
         </v-list-item-content>
       </v-list-item>
@@ -59,7 +59,7 @@ export default {
     valid: true,
     name: "",
     nameRules: [(v) => !!v || "Name is required"],
-    email: "",
+    mail: "",
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
@@ -76,11 +76,11 @@ export default {
     send() {
       this.$store.dispatch(ACTIONS.ADD_USER, {
         name: this.name,
-        email: this.email,
+        mail: this.mail,
         password: this.password,
       });
       this.name = "";
-      this.email = "";
+      this.mail = "";
       this.password = "";
     },
   },

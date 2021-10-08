@@ -10,7 +10,7 @@
         dark
         dismissible
       >
-        Bonjour, NOM
+        Bonjour,
       </v-alert>
       <!-- /Alert -->
       <v-card>
