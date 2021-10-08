@@ -19,15 +19,15 @@ export const state = () => ({
 export const mutations = {
     ADD_USER: (state, data) => state.users.push(data),
     LOGIN: (state, data) => {
-        state.users.forEach(user => {
-            if(data.mail == user.mail && data.password == user.password){
-                state.user.id = user.id;
-                state.user.name = user.name;
-                state.user.mail = user.mail;
-                state.user.password = user.password;
+        state.users.forEach(u => {
+            if (data.mail == u.mail && data.password == u.password) {
+                state.user.id = u.id;
+                state.user.name = u.name;
+                state.user.mail = u.mail;
+                state.user.password = u.password;
                 state.user.connected = true;
-            }else{
-                console.log(data.mail, user.mail);
+            } else {
+                console.log(data.mail, u.mail);
             }
         })
     }
@@ -35,15 +35,15 @@ export const mutations = {
 
 
 export const ACTIONS = {
-    ADD_USER: 'localStorage/add',
+    ADD_USER: 'localStorage/addUser',
     LOGIN: 'localStorage/login'
 }
 
 export const actions = {
-    add_user({commit}, data) {
-        commit("INCREMENT", data);
+    addUser({ commit }, data) {
+        commit("ADD_USER", data);
     },
-    login({commit}, data) {
+    login({ commit }, data) {
         commit("LOGIN", data);
     }
 
