@@ -61,6 +61,7 @@ export default {
     },
     send() {
       this.$store.dispatch(ACTIONS.ADD_USER, {
+        id: this.$store.state.localStorage.users.length,
         name: this.name,
         mail: this.mail,
         password: this.password,
