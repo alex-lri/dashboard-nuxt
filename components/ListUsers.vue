@@ -18,7 +18,7 @@
 
             <v-col class="col-6"
               ><div class="float-right">
-                <v-icon medium color="red darken-1" @click="deleteUser()">
+                <v-icon medium color="red darken-1" v-on:click="deleteUser(user.id)">
                   mdi-delete
                 </v-icon>
               </div>
@@ -31,17 +31,17 @@
 </template>
 
 <script>
+import { ACTIONS } from "../store/localStorage";
 
 export default {
   methods: {
     deleteUser(userId) {
       this.$store.dispatch(ACTIONS.DELETE_USER, {
-        id: userId
-      })
-    }
-  }
-}
-
+        id: userId,
+      });
+    },
+  },
+};
 </script>
 
 
