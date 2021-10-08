@@ -43,6 +43,8 @@
       >
         <v-list-item-content>
           <v-list-item-title v-text="user.name" />
+          <v-list-item-title v-text="user.email" />
+          <v-list-item-title v-text="user.password" />
         </v-list-item-content>
       </v-list-item>
     </v-list>
