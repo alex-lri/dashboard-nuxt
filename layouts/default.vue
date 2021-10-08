@@ -42,7 +42,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item v-show="$store.state.localStorage.user.connected">
-          <v-btn @click="logout">DISCONNECT</v-btn>
+          <v-btn color="error" @click="logout">Déconnexion</v-btn>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -65,7 +65,8 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <Nuxt />
+        <transition name="slide-fade"><Nuxt /></transition>
+        
       </v-container>
     </v-main>
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
@@ -119,3 +120,17 @@ export default {
   
 
 </script>
+
+<style>
+  .slide-fade-enter-active {
+        transition: all .5s ease;
+    }
+    .slide-fade-leave-active {
+        transition: all 0s ease;
+    }
+    .slide-fade-enter, .slide-fade-leave-to
+    /* .slide-fade-leave-active below version 2.1.8 */ {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+</style>

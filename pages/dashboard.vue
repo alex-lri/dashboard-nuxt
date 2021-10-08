@@ -1,5 +1,5 @@
 <template>
-  <div id="dashboard">
+<div id="dashboard">
     <v-container>
       <!-- Alert on login submit -->
       <v-alert
@@ -23,6 +23,7 @@
     </v-container>
   </div>
 </template>
+  
 
 <script>
 export default {
@@ -39,6 +40,3 @@ export default {
 };
 </script>
 
-
-<style scoped>
-</style>

@@ -21,8 +21,6 @@ export const mutations = {
                 state.user.mail = u.mail;
                 state.user.password = u.password;
                 state.user.connected = true;
-            } else {
-                console.log(data.mail, u.mail);
             }
         })
     },
