@@ -7,8 +7,9 @@
       fixed
       app
     >
-      <v-list>
+      <v-list v-show="loaded">
         <v-list-item
+          v-show="!$store.state.localStorage.user.connected"
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
@@ -22,12 +23,26 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+        <v-list-item v-show="$store.state.localStorage.user.connected"
+        :to="'dashboard'"
+        router
+        exact>
+          <v-list-item-action>
+            <v-icon>mdi-view-dashboard</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="'Dashboard'" />
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item
         v-show="loaded"
         >
           <v-list-item-content>
             <v-list-item-title v-text="$store.state.localStorage.user.mail"/>
           </v-list-item-content>
+        </v-list-item>
+        <v-list-item v-show="$store.state.localStorage.user.connected">
+          <v-btn @click="logout">DISCONNECT</v-btn>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -70,6 +85,7 @@
 </template>
 
 <script>
+import { ACTIONS } from "../store/localStorage";
 export default {
   computed: {
       loaded() {
@@ -82,26 +98,24 @@ export default {
       fixed: false,
       items: [
         {
-          icon: "mdi-account-plus-outline",
-          title: "Inscription",
-          to: "/signup",
-        },
-        {
           icon: "mdi-login",
           title: "Login",
           to: "/connect",
-        },
-        {
-          icon: "mdi-view-dashboard",
-          title: "Dashboard",
-          to: "/Dashboard",
-        },
+        }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js',
 
-    })
-  }
+    }),
+    methods: {
+      logout() {
+        this.$store.dispatch(ACTIONS.LOGOUT);
+        this.$router.push("/connect")
+      }
+    }
+}
+  
+
 </script>

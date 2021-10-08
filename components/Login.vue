@@ -20,26 +20,30 @@
   </div>
 </template>
 <script>
-import { ACTIONS } from "../store/localStorage.js";
-export default {
-  computed: {
-    loaded() {
-      return this.$store.state.localStorage.status;
-    },
-  },
-  data: () => ({
-    valid: true,
-    mail: "",
-    password: "",
-  }),
-  methods: {
-    login() {
-      this.$store.dispatch(ACTIONS.LOGIN, {
-        mail: this.mail,
-        password: this.password,
-      });
-      console.log("login attempt");
-    },
-  },
-};
+
+
+  import {ACTIONS} from "../store/localStorage.js";
+    export default {
+        computed: {
+            loaded() {
+                return this.$store.state.localStorage.status
+            }
+        },
+        data: () => ({
+            valid: true,
+            mail: '',
+            password: '',
+        }),
+        methods: {
+            login(){
+                this.$store.dispatch(ACTIONS.LOGIN, {
+                    mail: this.mail,
+                    password: this.password,
+                });
+                if(this.$store.state.localStorage.user.connected == true){
+                    this.$router.push("/dashboard")
+                }
+            }
+        }
+    }
 </script>
