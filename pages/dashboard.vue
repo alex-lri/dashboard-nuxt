@@ -1,5 +1,9 @@
 <template>
-<div id="dashboard">
+<div v-show="loaded">
+  <div v-show="!$store.state.localStorage.user.connected">
+      <v-btn color="success" :to="'connect'">Aller à la page de connexion</v-btn>
+  </div>
+  <div v-show="$store.state.localStorage.user.connected" id="dashboard">
     <v-container>
       <!-- Alert on login submit -->
       <v-alert
@@ -22,6 +26,8 @@
       </v-card>
     </v-container>
   </div>
+</div>
+
 </template>
   
 

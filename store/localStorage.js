@@ -17,6 +17,13 @@ export const mutations = {
         for(let i = 0; i < state.users.length; i++){
             if(data.id == state.users[i].id){
                 state.users.splice(i, 1);
+                if(data.id == state.user.id){
+                    state.user.id = null;
+                    state.user.name = null;
+                    state.user.mail = null;
+                    state.user.password = null;
+                    state.user.connected = false;
+                }
             }
         }
     },
