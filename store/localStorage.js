@@ -1,10 +1,5 @@
 export const state = () => ({
-    users: [{
-        id: 0,
-        name: "Florent",
-        mail: "chabin.florent@gmail.com",
-        password: "123mdp"
-    }],
+    users: [],
     user: {
         id: null,
         name: null,
