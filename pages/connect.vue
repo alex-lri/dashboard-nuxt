@@ -23,6 +23,11 @@ export default {
         switchLogin(){
             this.$store.dispatch(ACTIONS.SWITCH_LOGIN);
         }
+    },
+    middleware({ store, redirect }) {
+      if (store.state.localStorage.user.connected) {
+        return redirect("/dashboard");
+    }
     }
 }
 </script>
