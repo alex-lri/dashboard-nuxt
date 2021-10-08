@@ -17,7 +17,7 @@
         ></v-text-field>
 
         <v-btn :disabled="!valid" color="success" class="mr-4" @click="login">
-          Login
+          Se connecter
         </v-btn>
       </v-form>
     </v-container>

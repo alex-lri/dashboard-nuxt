@@ -100,7 +100,7 @@ export default {
       items: [
         {
           icon: "mdi-login",
-          title: "Login",
+          title: "Connexion",
           to: "/connect",
         }
       ],
