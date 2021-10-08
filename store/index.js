@@ -3,7 +3,8 @@ export const state = () => ({
 })
 
 export const mutations = {
-    SWITCH_LOGIN: (state) => {state.login = !state.login}
+    SWITCH_LOGIN: (state) => {state.login = !state.login},
+    CONNECTED: (state, connected) => {state.connected = connected}
 }
 
 export const ACTIONS = {

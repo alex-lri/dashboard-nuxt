@@ -44,12 +44,16 @@ export const mutations = {
         state.user.mail = null;
         state.user.password = null;
         state.user.connected = false;
+    },
+    GET_USER: (state) => {
+        return state.user.connected;
     }
 }
 
 
 export const ACTIONS = {
     ADD_USER: 'localStorage/addUser',
+    GET_USER: 'localStorage/getUser',
     DELETE_USER: 'localStorage/deleteUser',
     LOGIN: 'localStorage/login',
     LOGOUT: 'localStorage/logout'
@@ -67,6 +71,9 @@ export const actions = {
     },
     logout({ commit }) {
         commit("LOGOUT");
+    },
+    getUser({ commit }) {
+        commit("GET_USER");
     },
     
 

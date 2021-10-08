@@ -40,6 +40,12 @@ export default {
       this.$store.dispatch(ACTIONS.DELETE_USER, {
         id: userId,
       });
+      if(this.$store.state.localStorage.user.connected == false){
+        this.$cookies.set('connected', false, {
+          path: '/',
+          maxAge: 60 * 60 * 24 * 7
+        })
+      }
     },
   },
 };

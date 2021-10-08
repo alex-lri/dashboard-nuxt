@@ -113,7 +113,8 @@ export default {
     methods: {
       logout() {
         this.$store.dispatch(ACTIONS.LOGOUT);
-        this.$router.push("/connect")
+        this.$cookies.remove('connected');
+        this.$router.push("/connect");
       }
     }
 }
