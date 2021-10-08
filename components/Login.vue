@@ -49,7 +49,9 @@
                     mail: this.mail,
                     password: this.password,
                 });
-                console.log("login attempt")
+                if(this.$store.state.localStorage.user.connected == true){
+                    this.$router.push("/dashboard")
+                }
             }
         }
     }

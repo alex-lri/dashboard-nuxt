@@ -25,13 +25,21 @@ export const mutations = {
                 console.log(data.mail, u.mail);
             }
         })
+    },
+    LOGOUT: (state, data) => {
+        state.user.id = null;
+        state.user.name = null;
+        state.user.mail = null;
+        state.user.password = null;
+        state.user.connected = false;
     }
 }
 
 
 export const ACTIONS = {
     ADD_USER: 'localStorage/addUser',
-    LOGIN: 'localStorage/login'
+    LOGIN: 'localStorage/login',
+    LOGOUT: 'localStorage/logout'
 }
 
 export const actions = {
@@ -40,6 +48,10 @@ export const actions = {
     },
     login({ commit }, data) {
         commit("LOGIN", data);
-    }
+    },
+    logout({ commit }) {
+        commit("LOGOUT");
+    },
+    
 
 }
