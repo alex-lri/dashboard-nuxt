@@ -29,25 +29,11 @@
       ></v-text-field>
 
       <v-btn :disabled="!valid" color="success" class="mr-4" @click="send">
-        Submit
+        S'inscrire
       </v-btn>
 
-      <v-btn color="error" class="mr-4" @click="reset"> Reset Form </v-btn>
+      <v-btn color="error" class="mr-4" @click="reset">Reset</v-btn>
     </v-form>
-    <div>Liste d'utilisateurs</div>
-    <v-list>
-      <v-list-item
-        v-for="(user, i) in $store.state.localStorage.users"
-        :key="i"
-        exact
-      >
-        <v-list-item-content>
-          <v-list-item-title v-text="user.name" />
-          <v-list-item-title v-text="user.mail" />
-          <v-list-item-title v-text="user.password" />
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
   </v-container>
 </template>
 
