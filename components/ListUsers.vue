@@ -33,7 +33,9 @@
 <script>
 import { ACTIONS } from "../store/localStorage";
 
+import { ACTIONS } from "../store/localStorage";
 export default {
+  
   methods: {
     deleteUser(userId) {
       this.$store.dispatch(ACTIONS.DELETE_USER, {

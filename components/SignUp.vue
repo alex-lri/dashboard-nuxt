@@ -39,6 +39,7 @@
 
 <script>
 import { ACTIONS } from "../store/localStorage";
+import { ACTIONS as ACTIONS_INDEX} from "../store/index";
 
 export default {
   data: () => ({
@@ -66,9 +67,7 @@ export default {
         mail: this.mail,
         password: this.password,
       });
-      this.name = "";
-      this.mail = "";
-      this.password = "";
+      this.$store.dispatch(ACTIONS_INDEX.SWITCH_LOGIN);
     },
   },
 };
